@@ -6,7 +6,7 @@ var guessLeft = 0;
 var userGuess;
 var psychicGuess;
 var letterToGuess;
-var guessedletter = [];
+var guessedletter; = [];
 
 
 document.onkeyup = function(event) {
@@ -32,12 +32,12 @@ document.onkeyup = function(event) {
   var letterGuessed = document.getElementById("guessed");
 
 
-function adder(x,y,z) {
+// function adder(x,y,z) {
 
-    function consoleInside(letters) {
-         for (var i = 0; i < letters.length; i++) {
-            console.log(letters[i]);
-        };
+//     function consoleInside(letters) {
+//          for (var i = 0; i < letters.length; i++) {
+//             console.log(letters[i]);
+//         };
 
      directionsText.textContent = "";
      userChoiceText.textContent = "You chose: " + userGuess;
@@ -45,5 +45,5 @@ function adder(x,y,z) {
      winsText.textContent = "wins: " + userWins;
      lossesText.textContent = "losses: " + userLoses;
 
-    };
-};
+//     };
+// };
