@@ -3,7 +3,7 @@ var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
 var userWins = 0;
 var userLoses = 0;
 var guessLeft = 9;
-var userGuessed = [];
+var userGuess = [];
 var eachofLetter = null;
 var psychicGuess;
 var letterToGuess;
@@ -13,46 +13,48 @@ var losesP = document.getElementById("loses");
 
 document.onkeyup = function(event) {
         var userGuess = event.key; 
-    var userGuess = event.key; 
-        var userGuess = event.key; 
-            guessedLetters.push(userGuess);
-    var psychicGuess = letters[Math.floor(Math.random() * letters.length)];
+        letters.push(userGuess);
+    
+    
+var psychicGuess = letters[Math.floor(Math.random() * letters.length)];
 
-    function countGuessleft () {
+    function countGuessleft() {
         document.querySelector("#guessLeft").innerHTML = "Guess Left:" + guessLeft;
     }
 
-    function soFarUserGuessed () {
-        document.querySelector("#letters").innerHTML = "Guess so Far:" + userGuessed.join('');
-
+    function  soFarUserGuessed () {
+        document.querySelector("#letters").innerHTML = "Guess so Far:" + userGuess.join('');
+       
     }
+    countGuessleft = 9; 
     
-    function countGuessleft();
-
+}
     var restart = function() {
-        guessLeft = 9;
-        userGuessed = [];
+        countGuessleft = 9;
+        userGuess = [];
         var psychicGuess = letters[Math.floor(Math.random() * letters.length)];
     }
-    document.onkeyup = function(event) {
+    
+    document.onkeyup = function(event) {    
         guessLeft--;
         
-        var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-        
-        guessedLetter.push(userGuess);
-        countGuessleft();
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    
+
+    document.onkeyup = function(event) {
+    var letters = event.key;
+        GuessLeft();
         soFarUserGuessed();
+    }    
 
     var psychicGuess = letters[Math.floor(Math.random() * letters.length)];
         if (userGuess === psychicGuess) {
-             userWin++;
+             userWins++;
              document.querySelector("#wins").innerHTML = "Wins: " + userWins;
              restart();
-       } else if (guessLeft === 0) {
+         } else if (guessLeft === 0) {
              userLoses++;
              document.querySelector("#loses").innerHTML = "Loses: " + userLoses;
              restart();
-            };
-             };    
-            };  
-  
+        };    
+    }
